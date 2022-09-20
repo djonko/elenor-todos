@@ -5,3 +5,12 @@ netty:
   default:
     allocator:
       max-order: 3
+
+graphql:
+  graphiql:
+    enabled: true
+
+api:
+  todo:
+    base-url: "https://todos.simpleapi.dev"
+    api-key: "78e2908a-c1cb-4402-9d17-596bc6094198"

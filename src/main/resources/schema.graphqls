@@ -1,0 +1,30 @@
+type Meta {
+    assigneeTo: String
+}
+
+type Todo {
+    id: Int
+    description: String
+    completed: Boolean
+    meta: Meta
+}
+
+input MetaInput {
+    assigneeTo: String
+}
+
+input TodoInput {
+    id: Int
+    description: String
+    completed: Boolean
+    meta: MetaInput
+}
+
+type Query {
+    todos: [Todo]
+    todoById(id: Int!):Todo
+}
+
+type Mutation{
+    addTodo( input: TodoInput! ): Todo
+}
