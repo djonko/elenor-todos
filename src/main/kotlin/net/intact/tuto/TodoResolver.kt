@@ -10,15 +10,16 @@ import java.util.stream.Stream
 @Singleton
 class TodoResolver(private val todoApiClient: TodoApiClient) {
 
-    fun getTodos(): DataFetcher<Stream<Todo>> {
+    fun getTodos(): DataFetcher<Stream<Todo>> = DataFetcher {
         val todos = todoApiClient.getTodos().map {
             it.toDto()
         }
+        todos.toStream()
+    }
 
-        return DataFetcher {
-            todos.toStream()
-        }
-
+    fun getTodoById() = DataFetcher {
+        val idTodo = it.getArgument<Int>("id")
+        todoApiClient.getTodoById(idTodo).map { response -> response.toDto() }.toFuture()
     }
 
 }
