@@ -1,0 +1,7 @@
+micronaut:
+  application:
+    name: elenorTodos
+netty:
+  default:
+    allocator:
+      max-order: 3
