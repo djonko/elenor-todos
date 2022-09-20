@@ -35,6 +35,9 @@ class GraphQLFactory {
                 .type(
                     TypeRuntimeWiring.newTypeWiring("Query").dataFetcher("todoById", graphQLDataFetchers.getTodoById())
                 )
+                .type(
+                    TypeRuntimeWiring.newTypeWiring("Mutation").dataFetcher("addTodo", graphQLDataFetchers.addTodo())
+                )
                 .build()
 
             val schemaGenerator = SchemaGenerator()

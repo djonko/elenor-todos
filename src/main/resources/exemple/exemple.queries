@@ -1,0 +1,43 @@
+query todos {
+  todos {
+    id
+    description
+    completed
+    meta {
+      assigneeTo
+    }
+  }
+}
+
+query todoById {
+  todoById(id: 206) {
+    id
+    description
+    completed
+    meta {
+      assigneeTo
+    }
+  }
+}
+
+mutation addTodo($input: TodoInput!) {
+  addTodo(input: $input) {
+    id
+    description
+    completed
+    meta {
+      assigneeTo
+    }
+  }
+}
+
+---------------- Variables -----------
+{
+  "input": {
+    "description": "Clean Account-processor",
+    "completed": true,
+    "meta": {
+      "assigneeTo": "user-2"
+    }
+  }
+}

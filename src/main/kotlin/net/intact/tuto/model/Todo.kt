@@ -11,7 +11,7 @@ data class MetaModel(
 
 @Introspected
 data class TodoModel(
-    val id: Int,
+    val id: Int?,
     val description: String,
     val completed: Boolean,
     val meta: MetaModel

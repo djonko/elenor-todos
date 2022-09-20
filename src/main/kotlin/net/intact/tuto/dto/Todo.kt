@@ -9,7 +9,7 @@ data class Meta(
 
 @Introspected
 data class Todo(
-    val id: Int,
+    val id: Int?,
     val description: String,
     val completed: Boolean,
     val meta: Meta
