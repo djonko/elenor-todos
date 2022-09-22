@@ -1,0 +1,49 @@
+###
+# @name GetAllTodo
+GRAPHQL http://{{host}}/graphql
+Content-Type: application/graphql
+
+query todos {
+    todos {
+        id
+        description
+        completed
+        meta {
+            assigneeTo
+        }
+    }
+}
+
+###
+# @name GetTodoById
+GRAPHQL http://{{host}}/graphql
+Content-Type: application/graphql
+
+query todoById {
+    todoById(id: 206) {
+        id
+        description
+        completed
+        meta {
+            assigneeTo
+        }
+    }
+}
+
+###
+# @name AddTodo
+GRAPHQL http://{{host}}/graphql
+Content-Type: application/graphql
+X-GraphQL-Variables: {input:{description: "Clean Account-processor", completed: true, meta: {assigneeTo: "user-4"}}}
+
+mutation addTodo($input: TodoInput!) {
+    addTodo(input: $input) {
+        id
+        description
+        completed
+        meta {
+            assigneeTo
+        }
+    }
+}
+
